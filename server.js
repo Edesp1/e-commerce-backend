@@ -1,7 +1,13 @@
 const express = require('express');
 const routes = require('./routes');
+require('dotenv').config();
 // import sequelize connection
-
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('database', 'root', 'your_password', {
+  host: 'localhost',
+  dialect: 'mysql',
+  logging: console.log // Enable logging
+});
 const app = express();
 const PORT = process.env.PORT || 3001;
 
