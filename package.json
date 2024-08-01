@@ -24,5 +24,13 @@
     "express": "^4.17.1",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.7"
+  },
+  "development": {
+    "username": "root",
+    "password": "Something12@",
+    "database": "ecommerce_db",
+    "host": "localhost",
+    "dialect": "mysql",
+    "port": 3306
   }
 }
