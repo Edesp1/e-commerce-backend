@@ -50,8 +50,9 @@ router.post('/', (req, res) => {
     });
 });
 
+// Update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+  console.log('PUT request received at /api/tags/:id with body:', req.body); // Add this line
   Tag.update(
     {
       tag_name: req.body.tag_name
@@ -62,14 +63,14 @@ router.put('/:id', (req, res) => {
       }
     })
     .then(tagData => {
-      if (!tagData) {
+      if (!tagData[0]) {
         res.status(404).json({ message: 'No Tag found with that ID.' });
         return;
       }
       res.json(tagData);
     })
     .catch(err => {
-      console.log(err);
+      console.log('Error in PUT request:', err); // Add this line
       res.status(500).json(err);
     });
 });
